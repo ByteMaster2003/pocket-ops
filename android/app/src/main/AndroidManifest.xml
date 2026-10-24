@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
 
     <application
-        android:label="PocketOps"
+        android:label="Pocket Ops"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

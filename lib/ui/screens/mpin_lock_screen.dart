@@ -188,7 +188,7 @@ class _MpinLockScreenState extends State<MpinLockScreen> {
             ),
             const SizedBox(height: 16),
             const Text(
-              'PocketOps',
+              'Pocket Ops',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,

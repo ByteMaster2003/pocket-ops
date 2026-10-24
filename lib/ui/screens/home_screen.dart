@@ -215,7 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const Icon(Icons.terminal, color: AppTheme.primary, size: 20),
             ),
             const SizedBox(width: 10),
-            const Text('PocketOps'),
+            const Text('Pocket Ops'),
           ],
         ),
         actions: [

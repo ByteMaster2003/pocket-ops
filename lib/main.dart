@@ -38,7 +38,7 @@ class PocketOpsApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => SessionManager()),
       ],
       child: MaterialApp(
-        title: 'PocketOps',
+        title: 'Pocket Ops',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.darkTheme,
         home: isMpinSet ? const MpinLockScreen() : const MpinSetupScreen(),

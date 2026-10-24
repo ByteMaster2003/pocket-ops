@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../core/security/app_lock_service.dart';
 import '../../core/theme/app_theme.dart';
 import 'mpin_setup_screen.dart';
@@ -286,6 +287,72 @@ class _SecuritySettingsScreenState extends State<SecuritySettingsScreen> {
                       Text(
                         'All SSH private keys are isolated inside the Android Hardware Keystore. There is no telemetry, analytics, or remote synchronization.',
                         style: TextStyle(color: AppTheme.textMuted, fontSize: 12, height: 1.4),
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 32),
+
+                // Section: About & Privacy
+                const Text(
+                  'DEVELOPER & PRIVACY',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                    color: AppTheme.textMuted,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppTheme.cardColor,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: AppTheme.border),
+                  ),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                        leading: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: AppTheme.primary.withValues(alpha: 0.12),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Icon(Icons.privacy_tip_outlined, color: AppTheme.primary, size: 20),
+                        ),
+                        title: const Text('Privacy Policy', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white, fontSize: 14)),
+                        subtitle: const Text('pocket-ops privacy practices', style: TextStyle(color: AppTheme.textMuted, fontSize: 12)),
+                        trailing: const Icon(Icons.open_in_new, size: 18, color: AppTheme.textMuted),
+                        onTap: () async {
+                          final uri = Uri.parse('https://viveksahani.com/apps/pocket-ops/privacy-policy');
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(uri, mode: LaunchMode.externalApplication);
+                          }
+                        },
+                      ),
+                      const Divider(height: 1, indent: 16, endIndent: 16),
+                      ListTile(
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+                        leading: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: AppTheme.primary.withValues(alpha: 0.12),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: const Icon(Icons.language_rounded, color: AppTheme.primary, size: 20),
+                        ),
+                        title: const Text('Developer Website', style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white, fontSize: 14)),
+                        subtitle: const Text('https://viveksahani.com', style: TextStyle(color: AppTheme.textMuted, fontSize: 12)),
+                        trailing: const Icon(Icons.open_in_new, size: 18, color: AppTheme.textMuted),
+                        onTap: () async {
+                          final uri = Uri.parse('https://viveksahani.com');
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(uri, mode: LaunchMode.externalApplication);
+                          }
+                        },
                       ),
                     ],
                   ),
